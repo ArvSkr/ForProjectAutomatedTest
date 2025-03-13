@@ -5,22 +5,24 @@ import org.openqa.selenium.WebElement;
 public class RegistrationPage {
     private WebDriver driver;
 
+ private By RegisterLink = By.linkText("Register");
+   private By usernameField = By.name("username");
+    private By emailField = By.name("email");
+    private By passwordField = By.name("password");
+    private By confirmPasswordField = By.name("password-confirm");
+    private By registerButton = By.name("Submit");
 
-    private By firstNameField = By.id("firstName");
-    private By lastNameField = By.id("lastName");
-    private By emailField = By.id("email");
-    private By passwordField = By.id("password");
-    private By confirmPasswordField = By.id("confirmPassword");
-    private By registerButton = By.id("register");
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
+public void DontHaveAccountClick(){
+        driver.findElement(RegisterLink).click();
+}
+    public void registerUser( String email, String username, String password) {
 
-    public void registerUser(String firstName, String lastName, String email, String password) {
-        driver.findElement(firstNameField).sendKeys(firstName);
-        driver.findElement(lastNameField).sendKeys(lastName);
         driver.findElement(emailField).sendKeys(email);
+         driver.findElement(usernameField).sendKeys(username);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(confirmPasswordField).sendKeys(password);
         driver.findElement(registerButton).click();

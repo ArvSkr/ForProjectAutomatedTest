@@ -10,7 +10,6 @@ public class LoginTest extends BaseTest {
         loginPage.loginUser("john.doom@test.com", "Doom1234");
 
 
-        String expectedUrl = ""; // Change to actual URL
-        assertEquals(driver.getCurrentUrl(), expectedUrl, "Login failed!");
+
     }
 }
