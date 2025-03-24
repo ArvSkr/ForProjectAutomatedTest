@@ -33,4 +33,35 @@ public class RegistrationTest extends BaseTest {
 
         assertTrue(registrationPage.isErrorMessageDisplayed(), "Error message should appear for invalid registration.");
     }
+
+    @Test
+    public void testRegistrationWithExistingEmail() {
+
+
+    }
+
+    @Test
+    public void testRegistrationWithInvalidEmail() {
+
+    }
+
+    @Test
+    public void testRegistrationWithInvalidPassword() {
+
+    }
+
+    @Test
+    public void testRegistrationWithMismatchingPasswords() {
+
+    }
+
+    @Test
+    public void testRegistrationWithPasswordTooShort() {
+
+    }
+
+    @Test
+    public void testRegistrationWithPasswordTooLong() {
+
+    }
 }
