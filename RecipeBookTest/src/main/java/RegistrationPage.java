@@ -9,14 +9,16 @@ public class RegistrationPage {
     private By emailField = By.name("email");
     private By passwordField = By.name("password");
     private By confirmPasswordField = By.name("password-confirm");
-    private By registerButton = By.name("Submit");
-    private By successMessage = By.id("successMessage");
-    private By errorMessage = By.id("errorMessage");
+    private By registerButton = By.cssSelector("button[type=\"submit\"]");
 
+    private By errorMessage = By.id("errorMessage");
+    private By clickLoginPage = By.linkText("LOGIN");
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
-
+public void clickLoginpage(){
+        driver.findElement(clickLoginPage).click();
+}
     public void clickRegisterLink() {
         driver.findElement(registerLink).click();
     }
@@ -24,20 +26,15 @@ public class RegistrationPage {
     public void registerUser(String email, String username, String password) {
         driver.findElement(emailField).clear();
         driver.findElement(emailField).sendKeys(email);
-        driver.findElement(usernameField).clear();
         driver.findElement(usernameField).sendKeys(username);
-        driver.findElement(passwordField).clear();
         driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(confirmPasswordField).clear();
         driver.findElement(confirmPasswordField).sendKeys(password);
         driver.findElement(registerButton).click();
     }
 
-    public boolean isSuccessMessageDisplayed() {
-        return driver.findElements(successMessage).size() > 0;
-    }
+
 
     public boolean isErrorMessageDisplayed() {
-        return driver.findElements(errorMessage).size() > 0;
+        return !driver.findElements(errorMessage).isEmpty();
     }
 }
