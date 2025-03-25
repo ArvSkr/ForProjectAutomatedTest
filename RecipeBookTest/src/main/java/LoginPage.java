@@ -6,7 +6,7 @@ public class LoginPage {
 
     private By emailField = By.id("email");
     private By passwordField = By.id("password");
-    private By loginButton = By.id("login");
+    private By loginButton = By.cssSelector("button[type='submit']");
     private By errorMessage = By.id("errorMessage");
 
     public LoginPage(WebDriver driver) {
@@ -14,14 +14,12 @@ public class LoginPage {
     }
 
     public void loginUser(String email, String password) {
-        driver.findElement(emailField).clear();
+
         driver.findElement(emailField).sendKeys(email);
-        driver.findElement(passwordField).clear();
+
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(loginButton).click();
     }
 
-    public boolean isErrorMessageDisplayed() {
-        return driver.findElements(errorMessage).size() > 0;
-    }
+
 }
